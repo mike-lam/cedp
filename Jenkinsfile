@@ -46,7 +46,7 @@ spec:
                   oc get templates -n openshift -o custom-columns=NAME:.metadata.name|grep -i ^postgres
                   oc new-app --name=postgresql-$dbname --template=postgresql-ephemeral -p DATABASE_SERVICE_NAME=postgresql-$dbname -p POSTGRESQL_USER=$user -p POSTGRESQL_PASSWORD=$password -p POSTGRESQL_DATABASE=$dbname -l ${GRP}
                   
-                  oc new-app . \
+                  oc new-app grafana/grafana \
                     --name=grafana-cedp \
             	    --strategy=docker \
 	                -l ${GRP} 
