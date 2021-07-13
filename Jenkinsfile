@@ -16,7 +16,7 @@ kind: Pod
 spec:
   containers:
   - name: shell
-    image: openshift/origin-jenkins-agent-base
+    image: openshift/origin-cli
     command:
     - sleep
     args:
