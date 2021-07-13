@@ -16,7 +16,7 @@ kind: Pod
 spec:
   containers:
   - name: shell
-    image: openshift/origin-cli
+    image: openshift/origin-jenkins-agent-base
     command:
     - sleep
     args:
@@ -34,6 +34,8 @@ spec:
         stage('DeployGrafana') {
             steps {
                 sh '''#!/bin/bash
+		git --version
+		oc --help
 		          oc login -u admin -p admin --insecure-skip-tls-verify https://api.crc.testing:6443
 		          oc project a1
                   oc adm policy add-scc-to-user anyuid  system:serviceaccount:a1:default 
