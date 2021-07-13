@@ -1,0 +1,24 @@
+# ref https://grafana.com/docs/grafana/latest/datasources/add-a-data-source/
+apiVersion: 1
+
+datasources:
+  # <string, required> name of the datasource. Required
+  - name: postgresql-gitea
+    type: postgres
+    access: proxy
+    url: postgresql-gitea:5432    
+    isDefault: false
+    version: 1
+    editable: false
+    password: gitea
+    user: gitea
+    database: gitea 
+    jsonData:    
+       sslmode: "disable" # disable/require/verify-ca/verify-full
+       tlsAuth: false
+       tlsAuthWithCACert: false
+       tlsSkipVerify: true
+    secureJsonData:
+       password: gitea
+       user: gitea
+

@@ -1,0 +1,24 @@
+# ref https://grafana.com/docs/grafana/latest/datasources/add-a-data-source/
+apiVersion: 1
+
+datasources:
+  # <string, required> name of the datasource. Required
+  - name: postgresql-grafana
+    type: postgres
+    access: proxy
+    url: postgresql-grafana:5432    
+    isDefault: false
+    version: 1
+    editable: false
+    password: grafana
+    user: grafana
+    database: grafana
+    jsonData:    
+       sslmode: "disable" # disable/require/verify-ca/verify-full
+       tlsAuth: false
+       tlsAuthWithCACert: false
+       tlsSkipVerify: true
+    secureJsonData:
+       password: grafana
+       user: grafana
+

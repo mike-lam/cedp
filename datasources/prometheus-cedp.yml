@@ -1,0 +1,13 @@
+# ref https://grafana.com/docs/grafana/latest/datasources/add-a-data-source/
+apiVersion: 1
+
+datasources:
+  # <string, required> name of the datasource. Required
+  - name: Prometheus-cedp
+    type: prometheus
+    access: proxy
+    url: http://prometheus-cedp:9090    
+    isDefault: true
+    version: 1
+    editable: false
+
